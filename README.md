@@ -26,7 +26,7 @@ Browser capture → Web Audio mixer → MP3 encoding → batched uploads → Wor
 
 ## Run locally
 
-Node 24 or newer. Run `npm test`, then `node build.mjs`. For an isolated local preview, run `node preview.mjs` and use the URL printed in the terminal. The preview uses in-memory storage. Deploy `dist/server/index.js` to your own Cloudflare Worker with an R2 binding named `BUCKET`; configure `HOST_PASSWORD_HASH` and `SESSION_SECRET` through your hosting secret manager. No live account credentials are included.
+Node 24 or newer. Run `npm test` (which builds first), or run `node build.mjs` to build only. For an isolated local preview, run `node preview.mjs` and use the URL printed in the terminal. The preview uses in-memory storage. Deploy `dist/server/index.js` to your own Cloudflare Worker with an R2 binding named `BUCKET`; configure `HOST_PASSWORD_HASH` and `SESSION_SECRET` through your hosting secret manager. No live account credentials are included.
 
 ## Status and limitations
 

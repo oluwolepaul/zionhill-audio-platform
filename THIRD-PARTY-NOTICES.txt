@@ -1,0 +1,13 @@
+This application includes @breezystack/lamejs version 1.2.7, a JavaScript MP3 encoder derived from LAME and lamejs by Alex Zhukov and other contributors.
+
+License: GNU Lesser General Public License version 3. See /encoder-license.txt and vendor/lamejs-LICENSE.txt.
+Unmodified encoder JavaScript: /encoder.js and vendor/lamejs.js.
+Package: https://www.npmjs.com/package/@breezystack/lamejs/v/1.2.7
+Upstream source: https://github.com/gideonstele/lamejs and https://github.com/zhuker/lamejs
+
+The encoder is a separately loaded ES module. To replace or modify it, replace vendor/lamejs.js with an ES module exporting a compatible Mp3Encoder constructor and rebuild with node build.mjs. The surrounding app does not restrict reverse engineering for debugging modifications to this LGPL component.
+
+Corresponding upstream source for the pinned package commit:
+https://github.com/gideonstele/lamejs/archive/1fb0ef5fa177413107e2e107d054a9b994e3f79c.zip
+LAME project: https://lame.sourceforge.net/
+

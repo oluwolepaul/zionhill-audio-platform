@@ -1,0 +1,10 @@
+{
+  "name": "zionhill-playstation",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test --test-timeout=15000 *.test.mjs test.mjs",
+    "pretest": "node build.mjs"
+  }
+}

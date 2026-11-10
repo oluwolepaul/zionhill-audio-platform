@@ -1,0 +1,13 @@
+import {flatIcon} from './ui-icons.js';
+import {mkdir,copyFile,readFile,writeFile} from 'node:fs/promises';
+import {icon} from './icons.mjs';
+await mkdir('dist/server',{recursive:true});
+let source=await readFile('worker/index.js','utf8');
+source='const UI_ICONS = '+JSON.stringify(await readFile('ui-icons.js','utf8'))+';\n'+source;
+source='const UPLOAD = '+JSON.stringify(await readFile('upload.js','utf8'))+';\n'+source;
+source='const ICONS = '+JSON.stringify(Object.fromEntries([180,192,512].map(size=>[size,icon(size).toString('base64')])))+';\n'+source;
+source='const LISTENER = '+JSON.stringify(await readFile('listener.js','utf8'))+';\n'+source;
+await writeFile('vendor/encoder-license-complete.txt',(await Promise.all(['vendor/lamejs-LICENSE.txt','vendor/LGPL-3.0.txt','vendor/GPL-3.0.txt'].map(f=>readFile(f,'utf8')))).join('\n\n'));
+for(const [name,file] of [['PAGE','page.html'],['CLIENT','client.js'],['WORKLET','worklet.js'],['MIXER','mixer.js'],['QUEUE','queue.js'],['PLAYER','player.js'],['PLAYLIST_STORE','playlist-store.js'],['SERVICE_WORKER','sw.js'],['ENCODER','vendor/lamejs.js'],['ENCODER_LICENSE','vendor/encoder-license-complete.txt'],['NOTICES','THIRD-PARTY-NOTICES.txt']]) source='const '+name+' = '+JSON.stringify(file==='page.html'?(await readFile(file,'utf8')).replace(/<span data-icon="([a-z-]+)"><\/span>/g,(_,name)=>flatIcon(name)):await readFile(file,'utf8'))+';\n'+source;
+await writeFile('dist/server/index.js',source);
+console.log('Built Zionhill Playstation.');
