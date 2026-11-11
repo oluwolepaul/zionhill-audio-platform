@@ -1,6 +1,6 @@
 # Zionhill Audio Platform
 
-[Open the live listener](https://playstation.zionhillmetrochurch.org) · [Regression checks](../../actions)
+[Open the live listener](https://playstation.zionhillmetrochurch.org) · [Regression checks](https://github.com/oluwolepaul/zionhill-audio-platform/actions)
 
 ## Try the local studio
 
@@ -31,3 +31,4 @@ Browser capture → Web Audio mixer → MP3 encoding → batched uploads → Wor
 
 - `worker/index.js` — server routes and persistence
 - `mixer.js`, `worklet.js`, `upload.js` — audio processing and transport
+
